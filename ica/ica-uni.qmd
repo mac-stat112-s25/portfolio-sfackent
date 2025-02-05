@@ -1,5 +1,94 @@
 ---
-title: "Univariate Viz"
+title: "ICA 3"
 ---
 
-Use this file for practice with the **univariate viz** in-class activity.  Refer to the class website for details.
+ggplot(hikes, aes(x = rating)) +
+
+geom_bar(color = "orange", fill = "blue") +
+
+labs(x = "Rating", y = "Number of hikes") +
+
+theme_minimal()
+
+ggplot(hikes, aes(x = elevation))
+
+```{r setup}
+
+# Import data
+hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
+head(hikes)
+# Use the ggplot function
+
+
+# Load the package
+library(tidyverse)
+library(ggplot2)
+ggplot(hikes, aes(x = rating))
+
+# you added geombar which adds bars to the chart
+ggplot(hikes, aes(x = rating)) +
+  geom_bar()
+# adds y axis and labels 
+ggplot(hikes, aes(x = rating)) +
+  geom_bar() +
+  labs(x = "Rating", y = "Number of hikes")
+# adds fill making bars blue
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(fill = "blue") +
+  labs(x = "Rating", y = "Number of hikes")
+# makes an orenge outline on the bars (very mac coded)
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(color = "orange", fill = "blue") +
+  labs(x = "Rating", y = "Number of hikes")
+# theme  minimal, the bar disapear
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(color = "orange", fill = "blue")  +
+  labs(x = "Rating", y = "Number of hikes") +
+  theme_minimal()
+# makes a grey bar chart showing amount of hikes at different elevations
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram()
+# adds a white outline??
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white") 
+# makes the bars blue with a white outline
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", fill = "blue") 
+# makes the bars thinner and cover smaller ranges of elevation
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white") +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+# makes the bars wider and cover higher ranges of elevation
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", binwidth = 1000) +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+# Happy medium? ideal graph? no title though
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", binwidth = 200) +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+
+#makes a line density chart by elevation
+ggplot(hikes, aes(x = elevation)) +
+  geom_density()
+ggplot(hikes, aes(x = elevation)) + 
+  geom_density(color = "red", fill = "white") + 
+  labs(x = "elevation(feet)", y = "density")
+# YUCK
+ggplot(hikes, aes(x = elevation)) +
+geom_histogram(color = "white", binwidth = 200) +
+labs(x = "Elevation (feet)", y = "Number of hikes")
+ggplot(hikes, aes(x = elevation)) + geom_histogram(color = "white", binwidth = 200) + labs(x = "Elevation (feet)", y = "Number of hikes")
+
+# Data on students in this class
+survey <- read.csv("https://hash-mac.github.io/stat112site-s25/data/survey.csv")
+
+# World Cup data
+world_cup <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-29/worldcups.csv")
+
+ggplot(world_cup, aes(x = year))+
+  geom_histogram() + 
+  labs(x = "year", y = "goals scored") 
+
+
+```
+
