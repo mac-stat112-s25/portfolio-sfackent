@@ -1,5 +1,82 @@
 ---
-title: "Mulivariate Viz"
+title: "ICA5 put in right place later"
+output: html_document
+date: "2025-02-05"
 ---
+```{r}
+library(tidyverse)
+# Import and check out data
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+head(education)
 
-Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.
+ggplot(education,aes(x=sat)) +
+  geom_density()
+#non normal is because somepeople are forced tot ake sat but don't care and don't study and therefore do poorly and those that do study do well so there's few people who just study a little.
+
+```
+```{r}
+# Construct a plot of sat vs expend
+ggplot(education,aes(x=expend, y=sat)) +
+  geom_point()+
+  geom_smooth(method = "lm")
+# Include a "best fit linear regression model" (HINT: method = "lm")
+
+```
+```{r}
+# Construct a plot of sat vs salary
+# Include a "best fit linear regression model" (HINT: method = "lm")
+ggplot(education,aes(x=salary, y=sat)) +
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+ggplot(education,aes(x=expend, y=sat, color=salary))+
+  geom_point()
+```
+```{r}
+ggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, method = "lm")
+#cut  catagorizes color (expendature into a 2 or 3 different colors (low/high or low/med/high so it's easier to read))
+#as expendeture and salary increase, sat decreases (negative corolation (doesn't make sense))
+```
+
+```{r}
+ggplot(education,aes(x=fracCat)) +
+  geom_density()
+ggplot(education,aes(x=fracCat,y=sat)) +
+  geom_point() # as participation rate increases avg grade decreases
+ggplot(education,aes(x=sat,fill=fracCat)) +
+  geom_density(alpha=0.5) 
+```
+```{r}
+ggplot(education, aes(y = sat, x = fracCat, color = cut(expend, 3))) + 
+  geom_line(alpha=0.5) + 
+  geom_smooth(se = FALSE, method = "lm")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
