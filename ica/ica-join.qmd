@@ -1,0 +1,79 @@
+---
+title: "ica-join"
+format: html
+---
+
+```{r}
+library(tidyverse)
+students_2 <- data.frame(
+  student = c("D", "E", "F"),
+  class = c("COMP 101", "BIOL 101", "POLI 101")
+)
+
+# Check it out
+students_2
+```
+
+```{r}
+students_2 <- data.frame(
+  student = c("D", "E", "F"),
+  class = c("COMP 101", "BIOL 101", "POLI 101")
+)
+
+# Check it out
+students_2
+```
+
+```{r}
+enrollments_2 <- data.frame(
+  course = c("ART 101", "BIOL 101", "COMP 101"),
+  enrollment = c(18, 20, 19)
+)
+
+# Check it out
+enrollments_2
+```
+
+```{r}
+enrollments_2 <- data.frame(
+  course = c("ART 101", "BIOL 101", "COMP 101"),
+  enrollment = c(18, 20, 19)
+)
+
+# Check it out
+enrollments_2
+```
+
+```{r}
+# eval = FALSE: don't evaluate this chunk when knitting. it produces an error.
+students_2 |> 
+  left_join(enrollments_2)
+```
+```{r}
+# The order of the keys is important:
+# join_by("left data key" == "right data key")
+# The order is mixed up here, thus we get an error:
+students_2 |> 
+  left_join(enrollments_2, join_by(course == class))
+```
+
+```{r}
+students_2 |> 
+  left_join(enrollments_2, join_by(class == course))
+```
+
+```{r}
+# The order of the keys is important:
+# join_by("left data key" == "right data key")
+# The order is mixed up here, thus we get an error:
+students_2 |> 
+  left_join(enrollments_2, join_by(course == class))
+```
+```{r}
+# The order of the keys is important:
+# join_by("left data key" == "right data key")
+# The order is mixed up here, thus we get an error:
+students_2 |> 
+  left_join(enrollments_2, join_by(course == class))
+```
+

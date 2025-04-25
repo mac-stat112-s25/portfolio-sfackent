@@ -1,0 +1,25 @@
+---
+title: "Dataimport"
+format: html
+---
+
+```{r}
+library(tidyverse)
+ imdb_messy <- read_csv("~/Desktop/portfolio-sfackent/data/imdb_5000_messy.csv")
+```
+```{r}
+# This should be the folder where you stored this qmd!
+getwd()
+```
+
+
+```{r}
+imdb_temp <- read_csv("../data/imdb_5000_messy.csv")
+
+```
+
+```{r}
+# Try importing only the first 5 rows
+ read_csv("../data/imdb_5000_messy.csv", n_max = 5)
+```
+

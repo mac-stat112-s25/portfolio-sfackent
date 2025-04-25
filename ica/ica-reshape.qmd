@@ -1,0 +1,50 @@
+---
+title: "reshape"
+format: html
+---
+
+```{r}
+sleep_wide <- read.csv("https://mac-stat.github.io/data/sleep_wide.csv")
+
+head(sleep_wide)
+#units are reaction time in ms based on # of sleep on restricted day and  test subject number
+# For cols, try 2 appproaches: using - and starts_with
+library (tidyverse)
+
+```
+```{r}
+sleep_long <- sleep_wide |>
+  pivot_longer(cols = -Subject,
+               names_to = "day",
+               names_prefix = "day_",
+               values_to = "reaction_time")
+
+head(sleep_long)
+```
+
+```{r}
+sleep_long <- sleep_wide |>
+  pivot_longer(cols = -Subject,
+               names_to = "day",
+               names_prefix = "day_",
+               values_to = "reaction_time") |> 
+  mutate(Subject = as.factor(Subject), day = as.numeric(day))
+
+# Check it out
+# Same data, different class
+head(sleep_long)
+```
+```{r}
+# Make a line plot of reaction time by day for each subject
+# Put these all on the same frame
+ggplot(sleep_long,x==day, y== reaction_time, color= subject geomline)
+```
+```{r}
+# Load data
+library(tidyr)
+data("billboard")
+
+# Check it out
+head(billboard)
+```
+
