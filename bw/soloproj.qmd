@@ -13,8 +13,18 @@ library(viridisLite)
 library(leaflet)
 chicagocrime<-read_csv(here("data", "Chicago_crime_2015_2020.csv"))
 
-Chic_boundaries <- read_sf(here("data/Chicago_City_Limits-shp", "Chicago_City_Limits.dbf"))
+Chic_boundaries <-read_sf(here("data/Neighborhoods_2012", "Neighborhoods_2012b.dbf"))
 
+chicagorob<-chicagocrime|>
+  filter(primary_type=="Robbery")
+
+ggplot(Chic_boundaries) + 
+  geom_sf() + 
+  geom_point(
+    data = chicagorob,
+    aes(x = longitude, y = latitude)
+  ) +
+  theme_map()
 
 ```
 
