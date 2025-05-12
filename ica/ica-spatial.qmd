@@ -13,7 +13,11 @@ head(fave_places)
 ```{r}
 # Load the leaflet package
 library(leaflet)
-
+library(tidyverse)
+library(dplyr)
+library(mosaic)
+library(rnaturalearth)
+library(gplots)
 # Just a plotting frame
 leaflet(data = fave_places)
 ```

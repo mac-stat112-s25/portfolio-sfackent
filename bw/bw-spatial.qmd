@@ -9,7 +9,12 @@ elections_by_state <-  read.csv("https://mac-stat.github.io/data/election_2020_b
 elections_by_counties <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
 
 library(leaflet)
-
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(mosaic)
+library(rnaturalearth)
+library(gplots)
 elections_by_state <- elections_by_state |> 
   filter(state_abbr != "DC") |> 
   select(state_name, state_abbr, repub_pct_20) |> 
