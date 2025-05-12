@@ -2,6 +2,7 @@
 title: "Trivariate Viz"
 ---
 ```{r}
+library("ggplot2")
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
 #| fig-cap: "Rebublican support in 2020 by Counties related to support in 2016"
 #| fig-alt: "A scatter plot showing  Republican support in 2016 on the X and 2020 support on Y with a red best fit line showing a strong positive corolation between the two the dots are colored based on the historical political leaning of the county showing historical trends were not interupted by either election cycle"
