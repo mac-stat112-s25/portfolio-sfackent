@@ -3,3 +3,18 @@ title: "soloproj"
 format: html
 ---
 
+```{r}
+library(tidyverse)
+library(here)
+library(rnaturalearth)
+library(sf)
+library(RColorBrewer)
+library(viridisLite)
+library(leaflet)
+chicagocrime<-read_csv(here("data", "Chicago_crime_2015_2020.csv"))
+
+Chic_boundaries <- read_sf(here("data/Chicago_City_Limits-shp", "Chicago_City_Limits.dbf"))
+
+
+```
+
