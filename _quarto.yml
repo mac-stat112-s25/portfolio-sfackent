@@ -4,7 +4,7 @@ project:
 
 book:
   title: "COMP/STAT112 Notebook"
-  author: "Your Name Here"
+  author: "Sam Fackenthal"
   date: today
   reader-mode: true
   page-navigation: true
@@ -13,7 +13,7 @@ book:
   
   
   sidebar:
-    title: "Your Name Here"
+    title: "Sam Fackenthal"
     collapse-level: 2
     style: "docked"
     pinned: true
@@ -30,6 +30,7 @@ book:
       - bw/bw-tri.qmd
       - bw/bw-quad.qmd
       - bw/bw-spatial.qmd
+      - bw/soloproj.qmd
 
     - part: "In-class Activities"
       chapters: 
@@ -37,6 +38,10 @@ book:
       - ica/ica-bi.qmd
       - ica/ica-multi.qmd
       - ica/ica-spatial.qmd
+      - ica/ica-join.qmd
+      - ica/ica-wrang.qmd
+      - ica/ica-reshape.qmd
+      - ica/ica-Dataimport.qmd
 
 format:
   html:
