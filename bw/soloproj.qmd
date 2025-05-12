@@ -27,4 +27,6 @@ ggplot(Chic_boundaries) +
   theme_map()
 
 ```
+problem, shape file uses shape area shape leng rather than long lat,
+theoretically I'd like to chloropleth robberys by neighborhood and then do storytelling about said neighborhoods likely based on demographic or incomes. It could also be made into a Northside v.s. Southside argument. for effective vis, I'd do the standard captioning and alt text and if I had time maybe add a filter to chloropleth multiple different types of crime using shiny or somthing like that
 
