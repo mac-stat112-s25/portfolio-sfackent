@@ -1,5 +1,16 @@
 ---
 title: "Trivariate Viz"
 ---
+```{r}
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+#| fig-cap: "Rebublican support in 2020 by Counties related to support in 2016"
+#| fig-alt: "A scatter plot showing  Republican support in 2016 on the X and 2020 support on Y with a red best fit line showing a strong positive corolation between the two the dots are colored based on the historical political leaning of the county showing historical trends were not interupted by either election cycle"
+
+ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16,color= historical)) + scale_color_manual(values = c("blue","purple","red"))+
+  geom_point(alpha = 0.4) +labs(x="Republican Percent Vote in 2016", y= "Republican Percent Vote in 2020", title = "Did Republican Support in 2016 Carry Over into 2020?")+
+  geom_smooth(color = "black")
+```
+
+
 
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.

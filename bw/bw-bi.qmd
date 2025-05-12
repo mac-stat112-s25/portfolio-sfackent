@@ -2,4 +2,19 @@
 title: "Bivariate Viz"
 ---
 
+
+```{r}
+library(tidyverse)
+# Import and check out data
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+head(education)
+```
+
+```{r}
+#| fig-cap: "Average SAT scores based on low, medium and high participation rate"
+#| fig-alt: "Density plot showing distribution of average SAT scores in by participation rate by state. The graph shows that lower participation rate tends to increase average score likely due to only students who had studied for the exam taking it rather  than it being mandatory"
+ggplot(education,aes(x=sat,fill=fracCat)) +
+  geom_density(alpha=0.5) +labs (x= "Average S.A.T Score", y= "Density", title = "How does Participation Rate Effect Average SAT Scores Across School Districts?")
+
+```
 Use this file to generate a professional looking **bivariate** visualization.  The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.
