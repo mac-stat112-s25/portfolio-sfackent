@@ -3,3 +3,22 @@ title: "Univariate Viz"
 ---
 
 Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+```{r}
+
+# Import data
+hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
+head(hikes)
+# Use the ggplot function
+
+
+# Load the package
+library(tidyverse)
+library(ggplot2)
+
+#| fig-cap: "Distribution of hikes across different elevations"
+#| fig-alt: "Histogram chart that shows hikes across different elevation breakpoints, most hikes lie within 4,000-5,000ft "
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "blue",fill = "green", binwidth = 200) +
+  labs(x = "Elevation (ft)", y = "Number of hikes", title = "Number of Hikes by Elevation")
+```
+
